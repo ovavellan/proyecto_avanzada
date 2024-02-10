@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .col-6 {
+    width: 400px; // Ancho fijo para el formulario
+    padding: 20px;
+
+    .form-floating {
+      width: 100%;
+      margin-bottom: 20px;
+
+      input {
+        width: calc(100% - 38px); // Resta el ancho del borde y el relleno del input
+      }
+    }
+
+    button {
+      width: calc(100% - 40px); // Ancho igual al formulario
+    }
+  }
+}

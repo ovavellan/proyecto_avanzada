@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h2>Registros Pendientes</h2>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Nombre y Apellido</th>
+      <th>Email</th>
+      <th>Marca de Vehículo</th>
+      <th>Fecha de Ingreso</th>
+      <th>Tipo de Lavado</th>
+      <th>Estado</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let registro of registros">
+      <td>{{ registro.nombre_cliente }}</td>
+      <td>{{ registro.email }}</td>
+      <td>{{ registro.marca_vehiculo }}</td>
+      <td>{{ registro.fecha_ingreso }}</td>
+      <td>{{ registro.tipo_lavado }}</td>
+      <td>{{ registro.estado }}</td>
+      <td>
+        <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Ver detalles</button>
+        <button class="btn btn-primary custom-btn green-btn">Aceptar</button>
+        <button class="btn btn-primary custom-btn red-btn">Rechazar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

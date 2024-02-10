@@ -1,0 +1,36 @@
+/* Establece el tamaño del cuerpo y el contenedor para ocupar toda la altura */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del contenedor principal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  /* Estilos para el formulario */
+  .col-6 {
+    width: 400px; // Ancho fijo para el formulario
+    padding: 20px;
+
+    /* Estilos para los campos de entrada */
+    .form-floating {
+      width: 100%;
+      margin-bottom: 20px;
+
+      /* Aplica el ancho fijo a los inputs */
+      input {
+        width: 100%; // Ancho fijo del 100%
+      }
+    }
+
+    /* Estilos para el botón */
+    button {
+      width: 100%; // Ancho igual al formulario
+    }
+  }
+}

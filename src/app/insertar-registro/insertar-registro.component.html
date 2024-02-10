@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInputNombre" placeholder="Nombre Usuario"
+               [(ngModel)]="nombre">
+        <label for="floatingInputNombre">Nombre y Apellido</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Apellido Usuario"
+               [(ngModel)]="cedula">
+        <label>Cédula</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control"placeholder="Cedula Usuario"
+               [(ngModel)]="direccion">
+        <label>Dirección</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control"placeholder="Telefono Usuario"
+               [(ngModel)]="email">
+        <label>Email</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control"placeholder="Direccion Usuario"
+               [(ngModel)]="marcaVehiculo">
+        <label>Marca del Vehículo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Correo Usuario"
+               [(ngModel)]="modeloVehiculo">
+        <label>Modelo del Vehículo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="date" class="form-control"placeholder="Correo Usuario"
+               [(ngModel)]="fechaIngreso">
+        <label>Fecha de Ingreso</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="time" class="form-control"placeholder="Correo Usuario"
+               [(ngModel)]="horaIngreso">
+        <label>Hora de Ingreso</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <select class="form-select" [(ngModel)]="empleadoACargo">
+          <option value="Samuel Ledesma">Samuel Ledesma</option>
+          <option value="Jhanira Aranda">Jhanira Aranda</option>
+          <option value="Oscar Avellán">Oscar Avellán</option>
+        </select>
+        <label>Empleado a cargo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <select class="form-select"  [(ngModel)]="tipoLavado">
+          <option value="Económico">Económico</option>
+          <option value="Estándar">Estándar</option>
+          <option value="Premium">Premium</option>
+        </select>
+        <label>Tipo de Lavado</label>
+      </div>
+      <button class="btn btn-primary mb-3" (click)="insertarRegistro()">Guardar</button>
+    </div>
+  </div>
+</div>
