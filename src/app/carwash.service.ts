@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http'
 export class CarwashService {
 
   url= "http://localhost:3500/";
+
+  datosTabla: any[] = [];
   constructor(public http:HttpClient) { }
 
   insetarRegistro(data: any){
@@ -47,5 +49,29 @@ export class CarwashService {
     })
   }
 
+  rechazarSolicitud(idSolicitud: string) {
+    return new Promise(resolve => {
+      this.http.post(this.url + 'solicitud/rechazarRegistro', { idSolicitud }).subscribe({
+        next: (responseData) => {
+          resolve(responseData);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  }
 
+  aceptarSolicitud(idSolicitud: string) {
+    return new Promise(resolve => {
+      this.http.post(this.url + 'solicitud/aceptarRegistro', { idSolicitud }).subscribe({
+        next: (responseData) => {
+          resolve(responseData);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  }
 }

@@ -28,4 +28,29 @@ export class EstadoPendienteComponent implements OnInit {
     this.router.navigate(['/verDetalles', {_id:_id}])
   }
 
+  async rechazarSolicitud(idSolicitud: string) {
+    try {
+      await this.CarwashService.rechazarSolicitud(idSolicitud);
+      console.log('Solicitud rechazada correctamente');
+      this.traerRegistrosPendientes();
+    } catch (error) {
+      console.error('Error al rechazar la solicitud:', error);
+    }
+  }
+
+  async aceptarSolicitud(idSolicitud: string) {
+    try {
+      await this.CarwashService.aceptarSolicitud(idSolicitud);
+      console.log('Solicitud aceptada correctamente');
+      this.traerRegistrosPendientes();
+      this.redirectToCalificacionPago(idSolicitud);
+    } catch (error) {
+      console.error('Error al aceptar la solicitud:', error);
+    }
+  }
+
+  redirectToCalificacionPago(_id: string){
+    this.router.navigate(['/calificacionPago', {_id:_id}])
+  }
+
 }

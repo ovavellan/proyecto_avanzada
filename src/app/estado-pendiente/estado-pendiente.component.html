@@ -22,8 +22,10 @@
       <td>{{ registro.estado }}</td>
       <td>
         <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Ver detalles</button>
-        <button class="btn btn-primary custom-btn green-btn">Aceptar</button>
-        <button class="btn btn-primary custom-btn red-btn">Rechazar</button>
+        <ng-container *ngIf="registro.estado === 'Pendiente'">
+          <button class="btn btn-primary custom-btn green-btn" (click)="aceptarSolicitud(registro._id)">Aceptar</button>
+          <button class="btn btn-primary custom-btn red-btn" (click)="rechazarSolicitud(registro._id)">Rechazar</button>
+        </ng-container>
       </td>
     </tr>
     </tbody>
