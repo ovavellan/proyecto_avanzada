@@ -1,65 +1,75 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarwashService } from "../carwash.service";
 import { Router } from '@angular/router';
-
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-insertar-registro',
   templateUrl: './insertar-registro.component.html',
   styleUrls: ['./insertar-registro.component.scss']
 })
-export class InsertarRegistroComponent {
+export class InsertarRegistroComponent implements OnInit {
+  form: FormGroup;
 
-  public nombre: string = '';
-  public cedula: string = '';
-  public direccion: string = '';
-  public email: string = '';
-  public marcaVehiculo: string = '';
-  public modeloVehiculo: string = '';
-  public fechaIngreso: string = '';
-  public horaIngreso: string = '';
-  public empleadoACargo: string = '';
-  public tipoLavado: string = '';
+  constructor(
+    public carwashService: CarwashService,
+    public router: Router,
+    private formBuilder: FormBuilder
+  ) {this.form = new FormGroup({})}
+  ngOnInit(): void {
+    this.buildForm(); // Llama al método buildForm en ngOnInit
 
-  constructor(public carwashService: CarwashService,
-              public router: Router) {}
-
-  async insertarRegistro() {
+  }
+  private buildForm() {
+    this.form = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      cedula: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      direccion: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)]],
+      marcaVehiculo: ['', Validators.required],
+      modeloVehiculo: ['', Validators.required],
+      fechaIngreso: ['', Validators.required],
+      horaIngreso: ['', Validators.required],
+      tipoLavado: ['', Validators.required],
+      recaptcha: ['', Validators.required]
+    });
+  }
+  save(event: Event) {
+    event.preventDefault();
+    if (this.form.valid) {
+      const value = this.form.value;
+      this.insertarRegistro(value); // Pasar el valor del formulario en lugar de this.form.value
+      console.log(value);
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
+  async insertarRegistro(formValue: any) {
     try {
-      let nuevaSolicitud = this.construirObtenerNuevaSolicitud();
+      // Mapeamos los nombres de los campos del formulario a los nombres esperados por el servicio
+      const nuevaSolicitud = {
+        nombre_cliente: formValue.nombre,
+        cedula: formValue.cedula,
+        direccion: formValue.direccion,
+        email: formValue.email,
+        marca_vehiculo: formValue.marcaVehiculo,
+        modelo_vehiculo: formValue.modeloVehiculo,
+        fecha_ingreso: formValue.fechaIngreso,
+        hora_ingreso: formValue.horaIngreso,
+        tipo_lavado: formValue.tipoLavado
+      };
+
       await this.carwashService.insetarRegistro(nuevaSolicitud);
       console.log("La solicitud ha sido registrada con éxito");
-      this.nombre = '';
-      this.cedula = '';
-      this.direccion = '';
-      this.email = '';
-      this.marcaVehiculo = '';
-      this.modeloVehiculo = '';
-      this.fechaIngreso = '';
-      this.horaIngreso = '';
-      this.empleadoACargo = '';
-      this.tipoLavado = '';
+      this.resetForm();
       alert("Solicitud ingresada de manera exitosa");
-
-
     } catch (error) {
       console.log("Ocurrió un error", error);
     }
   }
 
-  construirObtenerNuevaSolicitud() {
-    let nuevaSolicitud = {
-      nombre_cliente: this.nombre,
-      cedula: this.cedula,
-      direccion: this.direccion,
-      email: this.email,
-      marca_vehiculo: this.marcaVehiculo,
-      modelo_vehiculo: this.modeloVehiculo,
-      fecha_ingreso: this.fechaIngreso,
-      hora_ingreso: this.horaIngreso,
-      empleado_a_cargo: this.empleadoACargo,
-      tipo_lavado: this.tipoLavado,
-    };
-    return nuevaSolicitud;
+  resetForm() {
+    this.form.reset();
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
   }
-
 }

@@ -9,6 +9,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { InsertarRegistroComponent } from './insertar-registro/insertar-registro.component';
 import { EstadoPendienteComponent } from './estado-pendiente/estado-pendiente.component';
 import { ModalComponent } from './modal/modal.component';
+import {NgxCaptchaModule } from "ngx-captcha";
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

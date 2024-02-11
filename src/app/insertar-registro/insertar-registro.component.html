@@ -1,72 +1,103 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInputNombre" placeholder="Nombre Usuario"
-               [(ngModel)]="nombre">
-        <label for="floatingInputNombre">Nombre y Apellido</label>
-      </div>
+<form [formGroup]="form" (ngSubmit)="save($event)">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Apellido Usuario"
-               [(ngModel)]="cedula">
-        <label>Cédula</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input formControlName="nombre" type="text" class="form-control"  placeholder="Nombre Usuario">
+          <label>Nombre y Apellido</label>
+          <div *ngIf="form.get('nombre')?.invalid && (form.get('nombre')?.dirty || form.get('nombre')?.touched)" class="text-danger">
+            El nombre y apellido son requeridos
+          </div>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control"placeholder="Cedula Usuario"
-               [(ngModel)]="direccion">
-        <label>Dirección</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input formControlName="cedula" type="number" class="form-control" placeholder="Cédula Usuario">
+          <label>Cédula</label>
+          <div *ngIf="form.get('cedula')?.errors?.['required'] && form.get('cedula')?.touched" class="text-danger">
+            La cédula es requerida
+          </div>
+          <div *ngIf="form.get('cedula')?.errors?.['pattern'] && form.get('cedula')?.touched" class="text-danger">
+            La cédula debe tener exactamente 10 dígitos
+          </div>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control"placeholder="Telefono Usuario"
-               [(ngModel)]="email">
-        <label>Email</label>
-      </div>
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control"placeholder="Direccion Usuario"
-               [(ngModel)]="marcaVehiculo">
-        <label>Marca del Vehículo</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input formControlName="direccion" type="text" class="form-control"placeholder="direccion Usuario">
+          <label>Dirección</label>
+          <div *ngIf="form.get('direccion')?.invalid && (form.get('direccion')?.dirty || form.get('direccion')?.touched)" class="text-danger">
+            La dirección es requerida
+          </div>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Correo Usuario"
-               [(ngModel)]="modeloVehiculo">
-        <label>Modelo del Vehículo</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input formControlName="email" type="email" class="form-control" placeholder="email Usuario">
+          <label>Email</label>
+          <div *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched" class="text-danger">
+            El email es requerido
+          </div>
+          <div *ngIf="form.get('email')?.errors?.['pattern'] && form.get('email')?.touched" class="text-danger">
+            Ingrese un email válido
+          </div>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="date" class="form-control"placeholder="Correo Usuario"
-               [(ngModel)]="fechaIngreso">
-        <label>Fecha de Ingreso</label>
-      </div>
 
-      <div class="form-floating mb-3">
-        <input type="time" class="form-control"placeholder="Correo Usuario"
-               [(ngModel)]="horaIngreso">
-        <label>Hora de Ingreso</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input formControlName="marcaVehiculo" type="text" class="form-control"placeholder="marcaVehiculo Usuario">
+          <label>Marca del Vehículo</label>
+          <div *ngIf="form.get('marcaVehiculo')?.invalid && (form.get('marcaVehiculo')?.dirty || form.get('marcaVehiculo')?.touched)" class="text-danger">
+            La marca del vehículo es requerida
+          </div>
+        </div>
 
-      <div class="form-floating mb-3">
-        <select class="form-select" [(ngModel)]="empleadoACargo">
-          <option value="Samuel Ledesma">Samuel Ledesma</option>
-          <option value="Jhanira Aranda">Jhanira Aranda</option>
-          <option value="Oscar Avellán">Oscar Avellán</option>
-        </select>
-        <label>Empleado a cargo</label>
-      </div>
+        <div class="form-floating mb-3">
+          <input formControlName="modeloVehiculo" type="text" class="form-control"placeholder="modeloVehiculo Usuario">
+          <label>Modelo del Vehículo</label>
+          <div *ngIf="form.get('modeloVehiculo')?.invalid && (form.get('modeloVehiculo')?.dirty || form.get('modeloVehiculo')?.touched)" class="text-danger">
+            El modelo del vehículo es requerido
+          </div>
+        </div>
 
-      <div class="form-floating mb-3">
-        <select class="form-select"  [(ngModel)]="tipoLavado">
-          <option value="Económico">Económico</option>
-          <option value="Estándar">Estándar</option>
-          <option value="Premium">Premium</option>
-        </select>
-        <label>Tipo de Lavado</label>
+        <div class="form-floating mb-3">
+          <input formControlName="fechaIngreso" type="date" class="form-control"placeholder="fechaIngreso Usuario">
+          <label>Fecha de Ingreso</label>
+          <div *ngIf="form.get('fechaIngreso')?.invalid && (form.get('fechaIngreso')?.dirty || form.get('fechaIngreso')?.touched)" class="text-danger">
+            La fecha de ingreso es requerida
+          </div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input formControlName="horaIngreso" type="Time" class="form-control"placeholder="horaIngreso Usuario">
+          <label>Hora de Ingreso</label>
+          <div *ngIf="form.get('horaIngreso')?.invalid && (form.get('horaIngreso')?.dirty || form.get('horaIngreso')?.touched)" class="text-danger">
+            La hora de ingreso es requerida
+          </div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select formControlName="tipoLavado" class="form-select">
+            <option value="Económico">Económico</option>
+            <option value="Estándar">Estándar</option>
+            <option value="Premium">Premium</option>
+          </select>
+          <label>Tipo de Lavado</label>
+          <div *ngIf="form.get('tipoLavado')?.invalid && (form.get('tipoLavado')?.dirty || form.get('tipoLavado')?.touched)" class="text-danger">
+            El tipo de lavado es requerido
+          </div>
+
+          <div class="form-floating mb-3">
+            <div class="row captcha-container">
+              <ngx-recaptcha2 #captchaElem siteKey="6Leuvm4pAAAAAEQsD1LqgS2HFW1Juuf4qNWiuzeZ" formControlName="recaptcha"></ngx-recaptcha2>
+              <div *ngIf="form.get('recaptcha')?.invalid && (form.get('recaptcha')?.dirty || form.get('recaptcha')?.touched)" class="text-danger">
+                Debes completar el captcha.
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <button class="btn btn-primary mb-3" type="submit">Guardar</button>
       </div>
-      <button class="btn btn-primary mb-3" (click)="insertarRegistro()">Guardar</button>
     </div>
   </div>
-</div>
+</form>

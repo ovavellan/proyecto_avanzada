@@ -19,7 +19,6 @@ export class ModalComponent implements OnInit{
   public modelo_vehiculo: string = '';
   public fecha_ingreso: string = '';
   public hora_ingreso: string = '';
-  public empleado_a_cargo: string = '';
   public tipo_lavado: string = '';
   public estado: string = '';
 
@@ -44,7 +43,6 @@ export class ModalComponent implements OnInit{
       this.modelo_vehiculo = this.registro.modelo_vehiculo;
       this.fecha_ingreso = this.registro.fecha_ingreso;
       this.hora_ingreso = this.registro.hora_ingreso;
-      this.empleado_a_cargo = this.registro.empleado_a_cargo;
       this.tipo_lavado = this.registro.tipo_lavado;
       this.estado = this.registro.estado;
     } catch (error) {
