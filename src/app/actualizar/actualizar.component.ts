@@ -5,7 +5,7 @@ import { CarwashService } from "../carwash.service";
 @Component({
   selector: 'app-actualizar',
   templateUrl: './actualizar.component.html',
-  styleUrl: './actualizar.component.scss'
+  styleUrls: ['./actualizar.component.scss']
 })
 export class ActualizarComponent implements OnInit{
 
@@ -73,5 +73,17 @@ export class ActualizarComponent implements OnInit{
     }
   }
 
+  formularioValido(): boolean {
+    return !!this.nombre_cliente &&
+      !!this.cedula && !!this.direccion &&
+      !!this.email && !!this.marca_vehiculo &&
+      !!this.modelo_vehiculo && !!this.fecha_ingreso &&
+      !!this.hora_ingreso && !!this.tipo_lavado;
+  }
+
+  validarCorreo(email: string): boolean {
+    const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return pattern.test(email);
+  }
 
 }

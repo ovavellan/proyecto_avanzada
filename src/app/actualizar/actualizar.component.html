@@ -2,57 +2,68 @@
   <div class="row">
     <div class="col-6">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="nombreInput" placeholder="Nombre Cliente" [(ngModel)]="nombre_cliente">
+        <input type="text" class="form-control" id="nombreInput" placeholder="Nombre Cliente" [(ngModel)]="nombre_cliente" required>
         <label for="nombreInput">Nombre</label>
+        <div *ngIf="!nombre_cliente" class="text-danger">El nombre es requerido</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="cedulaInput" placeholder="Cédula" [(ngModel)]="cedula">
+        <input type="text" class="form-control" id="cedulaInput" placeholder="Cédula" [(ngModel)]="cedula" required pattern="[0-9]{10}">
         <label for="cedulaInput">Cédula</label>
+        <div *ngIf="!cedula" class="text-danger">La cédula es requerida</div>
+        <div *ngIf="cedula && cedula.length !== 10" class="text-danger">La cédula debe tener exactamente 10 dígitos</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="direccionInput" placeholder="Dirección" [(ngModel)]="direccion">
+        <input type="text" class="form-control" id="direccionInput" placeholder="Dirección" [(ngModel)]="direccion" required>
         <label for="direccionInput">Dirección</label>
+        <div *ngIf="!direccion" class="text-danger">La dirección es requerida</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="emailInput" placeholder="Correo" [(ngModel)]="email">
+        <input type="text" class="form-control" id="emailInput" placeholder="Correo" [(ngModel)]="email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
         <label for="emailInput">Correo</label>
+        <div *ngIf="!email" class="text-danger">El correo es requerido</div>
+        <div *ngIf="email && !validarCorreo(email)" class="text-danger">Ingrese un correo electrónico válido</div>
       </div>
 
+
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="marcaInput" placeholder="Marca Vehículo" [(ngModel)]="marca_vehiculo">
+        <input type="text" class="form-control" id="marcaInput" placeholder="Marca Vehículo" [(ngModel)]="marca_vehiculo" required>
         <label for="marcaInput">Marca Vehículo</label>
+        <div *ngIf="!marca_vehiculo" class="text-danger">La marca del vehículo es requerida</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="modeloInput" placeholder="Modelo Vehículo" [(ngModel)]="modelo_vehiculo">
+        <input type="text" class="form-control" id="modeloInput" placeholder="Modelo Vehículo" [(ngModel)]="modelo_vehiculo" required>
         <label for="modeloInput">Modelo Vehículo</label>
+        <div *ngIf="!modelo_vehiculo" class="text-danger">El modelo del vehículo es requerido</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="fechaInput" placeholder="Fecha Ingreso" [(ngModel)]="fecha_ingreso">
+        <input type="date" class="form-control" id="fechaInput" placeholder="Fecha Ingreso" [(ngModel)]="fecha_ingreso" required>
         <label for="fechaInput">Fecha Ingreso</label>
+        <div *ngIf="!fecha_ingreso" class="text-danger">La fecha de ingreso es requerida</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="horaInput" placeholder="Hora Ingreso" [(ngModel)]="hora_ingreso">
+        <input type="time" class="form-control" id="horaInput" placeholder="Hora Ingreso" [(ngModel)]="hora_ingreso" required>
         <label for="horaInput">Hora Ingreso</label>
+        <div *ngIf="!hora_ingreso" class="text-danger">La hora de ingreso es requerida</div>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="tipoLavadoInput" placeholder="Tipo Lavado" [(ngModel)]="tipo_lavado">
+        <select class="form-control" id="tipoLavadoInput" [(ngModel)]="tipo_lavado" required style="width: 90%">
+          <option value="" disabled selected>Selecciona el tipo de lavado</option>
+          <option value="Económico">Económico</option>
+          <option value="Estándar">Estándar</option>
+          <option value="Premium">Premium</option>
+        </select>
         <label for="tipoLavadoInput">Tipo Lavado</label>
+        <div *ngIf="!tipo_lavado" class="text-danger">El tipo de lavado es requerido</div>
       </div>
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="estadoInput" placeholder="Estado" [(ngModel)]="estado">
-        <label for="estadoInput">Estado</label>
-      </div>
-
-
-      <button class="btn btn-primary" (click)="actualizarRegistro()">Actualizar</button>
+      <button class="btn btn-primary" [disabled]="!formularioValido()" (click)="actualizarRegistro()">Actualizar</button>
 
     </div>
   </div>
