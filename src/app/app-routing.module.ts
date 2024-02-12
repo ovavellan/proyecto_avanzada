@@ -4,6 +4,7 @@ import {InsertarRegistroComponent} from "./insertar-registro/insertar-registro.c
 import {EstadoPendienteComponent} from "./estado-pendiente/estado-pendiente.component";
 import {ModalComponent} from "./modal/modal.component";
 import {CalificacionPagoComponent} from "./calificacion-pago/calificacion-pago.component";
+import {ActualizarComponent} from "./actualizar/actualizar.component";
 
 const routes: Routes = [
   {path: "insertarRegistro", component: InsertarRegistroComponent,
@@ -13,6 +14,8 @@ const routes: Routes = [
   {path: "verDetalles", component: ModalComponent,
     pathMatch:"full"},
   {path: "calificacionPago", component: CalificacionPagoComponent,
+    pathMatch:"full"},
+  {path: "actualizarDatos", component: ActualizarComponent,
     pathMatch:"full"}
 ];
 

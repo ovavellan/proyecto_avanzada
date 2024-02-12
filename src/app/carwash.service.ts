@@ -74,4 +74,17 @@ export class CarwashService {
       });
     });
   }
+
+  actualizarSolicitud(idSolicitud: string, data: any) {
+    return new Promise(resolve => {
+      this.http.post(this.url + 'solicitud/actualizarRegistro', { idSolicitud, ...data }).subscribe({
+        next: (responseData) => {
+          resolve(responseData);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  }
 }

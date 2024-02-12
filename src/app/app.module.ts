@@ -9,6 +9,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { InsertarRegistroComponent } from './insertar-registro/insertar-registro.component';
 import { EstadoPendienteComponent } from './estado-pendiente/estado-pendiente.component';
 import { ModalComponent } from './modal/modal.component';
+import {CalificacionPagoComponent} from "./calificacion-pago/calificacion-pago.component";
+import {ActualizarComponent} from "./actualizar/actualizar.component";
+
 import {NgxCaptchaModule } from "ngx-captcha";
 
 
@@ -18,7 +21,9 @@ import {NgxCaptchaModule } from "ngx-captcha";
     AppComponent,
     InsertarRegistroComponent,
     EstadoPendienteComponent,
-    ModalComponent
+    ModalComponent,
+    CalificacionPagoComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,

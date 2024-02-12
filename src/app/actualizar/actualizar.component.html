@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nombreInput" placeholder="Nombre Cliente" [(ngModel)]="nombre_cliente">
+        <label for="nombreInput">Nombre</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="cedulaInput" placeholder="Cédula" [(ngModel)]="cedula">
+        <label for="cedulaInput">Cédula</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="direccionInput" placeholder="Dirección" [(ngModel)]="direccion">
+        <label for="direccionInput">Dirección</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="emailInput" placeholder="Correo" [(ngModel)]="email">
+        <label for="emailInput">Correo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="marcaInput" placeholder="Marca Vehículo" [(ngModel)]="marca_vehiculo">
+        <label for="marcaInput">Marca Vehículo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="modeloInput" placeholder="Modelo Vehículo" [(ngModel)]="modelo_vehiculo">
+        <label for="modeloInput">Modelo Vehículo</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="fechaInput" placeholder="Fecha Ingreso" [(ngModel)]="fecha_ingreso">
+        <label for="fechaInput">Fecha Ingreso</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="horaInput" placeholder="Hora Ingreso" [(ngModel)]="hora_ingreso">
+        <label for="horaInput">Hora Ingreso</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="tipoLavadoInput" placeholder="Tipo Lavado" [(ngModel)]="tipo_lavado">
+        <label for="tipoLavadoInput">Tipo Lavado</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="estadoInput" placeholder="Estado" [(ngModel)]="estado">
+        <label for="estadoInput">Estado</label>
+      </div>
+
+
+      <button class="btn btn-primary" (click)="actualizarRegistro()">Actualizar</button>
+
+    </div>
+  </div>
+</div>

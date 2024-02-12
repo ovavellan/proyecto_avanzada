@@ -16,7 +16,7 @@ export class InsertarRegistroComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {this.form = new FormGroup({})}
   ngOnInit(): void {
-    this.buildForm(); // Llama al método buildForm en ngOnInit
+    this.buildForm();
 
   }
   private buildForm() {
@@ -37,7 +37,7 @@ export class InsertarRegistroComponent implements OnInit {
     event.preventDefault();
     if (this.form.valid) {
       const value = this.form.value;
-      this.insertarRegistro(value); // Pasar el valor del formulario en lugar de this.form.value
+      this.insertarRegistro(value);
       console.log(value);
     } else {
       this.form.markAllAsTouched();
@@ -45,7 +45,6 @@ export class InsertarRegistroComponent implements OnInit {
   }
   async insertarRegistro(formValue: any) {
     try {
-      // Mapeamos los nombres de los campos del formulario a los nombres esperados por el servicio
       const nuevaSolicitud = {
         nombre_cliente: formValue.nombre,
         cedula: formValue.cedula,
