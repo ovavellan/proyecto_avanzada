@@ -62,7 +62,7 @@ export class ActualizarComponent implements OnInit{
         fecha_ingreso: this.fecha_ingreso,
         hora_ingreso: this.hora_ingreso,
         tipo_lavado: this.tipo_lavado,
-        estado: this.estado
+        estado: 'Pendiente'
       };
       await this.CarwashService.actualizarSolicitud(this._id, data);
       console.log('Registro actualizado correctamente');
