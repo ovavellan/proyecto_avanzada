@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarwashService } from "../carwash.service";
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-actualizar',
@@ -66,7 +68,12 @@ export class ActualizarComponent implements OnInit{
       };
       await this.CarwashService.actualizarSolicitud(this._id, data);
       console.log('Registro actualizado correctamente');
-      alert("El registro se ha actualizado con éxito")
+      Swal.fire({
+        icon: 'success',
+        title: 'El registro ha sido actualizado de manera exitosa',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigate(['/estadoPendiente'])
     } catch (error) {
       console.log(error);

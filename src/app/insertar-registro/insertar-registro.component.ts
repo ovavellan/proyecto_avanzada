@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CarwashService } from "../carwash.service";
 import { Router } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-insertar-registro',
   templateUrl: './insertar-registro.component.html',
@@ -60,7 +62,12 @@ export class InsertarRegistroComponent implements OnInit {
       await this.carwashService.insetarRegistro(nuevaSolicitud);
       console.log("La solicitud ha sido registrada con éxito");
       this.resetForm();
-      alert("Solicitud ingresada de manera exitosa");
+      Swal.fire({
+        icon: 'success',
+        title: 'Solicitud ingresada de manera exitosa',
+        showConfirmButton: false,
+        timer: 1500
+      });
     } catch (error) {
       console.log("Ocurrió un error", error);
     }
