@@ -13,6 +13,7 @@ import {CalificacionPagoComponent} from "./calificacion-pago/calificacion-pago.c
 import {ActualizarComponent} from "./actualizar/actualizar.component";
 
 import {NgxCaptchaModule } from "ngx-captcha";
+import { TablaConfirmadosComponent } from './tabla-confirmados/tabla-confirmados.component';
 
 
 
@@ -23,7 +24,8 @@ import {NgxCaptchaModule } from "ngx-captcha";
     EstadoPendienteComponent,
     ModalComponent,
     CalificacionPagoComponent,
-    ActualizarComponent
+    ActualizarComponent,
+    TablaConfirmadosComponent
   ],
   imports: [
     BrowserModule,
