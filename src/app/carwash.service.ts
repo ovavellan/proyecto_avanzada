@@ -36,6 +36,19 @@ export class CarwashService {
     })
   }
 
+  getEstadoAceptado(){
+    return new Promise(resolve => {
+      this.http.get(this.url + 'solicitud/getTablaAceptados').subscribe({
+        next:(data) =>{
+          resolve(data);
+        },
+        error: (err)=>{
+          console.log(err);
+        }
+      });
+    })
+  }
+
   getById(id: string){
     return new Promise(resolve => {
       this.http.get(this.url + 'solicitud/getById/' + id).subscribe({
@@ -62,6 +75,19 @@ export class CarwashService {
     });
   }
 
+  aceptarSolicitud(idSolicitud: string) {
+    return new Promise(resolve => {
+      this.http.post(this.url + 'solicitud/aceptarRegistro', { idSolicitud }).subscribe({
+        next: (responseData) => {
+          resolve(responseData);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  }
+
   impagoSolicitud(idSolicitud: string) {
     return new Promise(resolve => {
       this.http.post(this.url + 'solicitud/impagoRegistro', { idSolicitud }).subscribe({
@@ -74,6 +100,7 @@ export class CarwashService {
       });
     });
   }
+
 
   actualizarSolicitud(idSolicitud: string, data: any) {
     return new Promise(resolve => {

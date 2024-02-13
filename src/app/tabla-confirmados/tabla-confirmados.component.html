@@ -1,1 +1,50 @@
-<p>tabla-confirmados works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Car Wash</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/estadoPendiente">Pendientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Servicios</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h2>Registros Aceptados</h2>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Nombre y Apellido</th>
+      <th>Email</th>
+      <th>Marca de Vehículo</th>
+      <th>Fecha de Ingreso</th>
+      <th>Tipo de Lavado</th>
+      <th>Estado</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let registro of registros">
+      <td>{{ registro.nombre_cliente }}</td>
+      <td>{{ registro.email }}</td>
+      <td>{{ registro.marca_vehiculo }}</td>
+      <td>{{ registro.fecha_ingreso }}</td>
+      <td>{{ registro.tipo_lavado }}</td>
+      <td>{{ registro.estado }}</td>
+      <td>
+        <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Ver detalles</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

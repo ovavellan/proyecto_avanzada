@@ -14,7 +14,7 @@ import {ActualizarComponent} from "./actualizar/actualizar.component";
 
 import {NgxCaptchaModule } from "ngx-captcha";
 import { TablaConfirmadosComponent } from './tabla-confirmados/tabla-confirmados.component';
-
+import {DetallesAceptadosComponent} from "./detalles-aceptados/detalles-aceptados.component";
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { TablaConfirmadosComponent } from './tabla-confirmados/tabla-confirmados
     ModalComponent,
     CalificacionPagoComponent,
     ActualizarComponent,
-    TablaConfirmadosComponent
+    TablaConfirmadosComponent,
+    DetallesAceptadosComponent
   ],
   imports: [
     BrowserModule,
