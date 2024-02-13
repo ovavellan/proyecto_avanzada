@@ -55,9 +55,9 @@
       <div class="form-floating mb-3">
         <select class="form-control" id="tipoLavadoInput" [(ngModel)]="tipo_lavado" required style="width: 90%">
           <option value="" disabled selected>Selecciona el tipo de lavado</option>
-          <option value="Económico">Económico</option>
-          <option value="Estándar">Estándar</option>
-          <option value="Premium">Premium</option>
+          <option value="Económico">Económico ($5)</option>
+          <option value="Estándar">Estándar ($6.50)</option>
+          <option value="Premium">Premium ($12)</option>
         </select>
         <label for="tipoLavadoInput">Tipo Lavado</label>
         <div *ngIf="!tipo_lavado" class="text-danger">El tipo de lavado es requerido</div>

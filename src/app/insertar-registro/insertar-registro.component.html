@@ -77,9 +77,9 @@
 
         <div class="form-floating mb-3">
           <select formControlName="tipoLavado" class="form-select">
-            <option value="Económico">Económico</option>
-            <option value="Estándar">Estándar</option>
-            <option value="Premium">Premium</option>
+            <option value="Económico">Económico ($3)</option>
+            <option value="Estándar">Estándar ($6.50)</option>
+            <option value="Premium">Premium ($12)</option>
           </select>
           <label>Tipo de Lavado</label>
           <div *ngIf="form.get('tipoLavado')?.invalid && (form.get('tipoLavado')?.dirty || form.get('tipoLavado')?.touched)" class="text-danger">
