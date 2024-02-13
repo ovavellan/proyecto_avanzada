@@ -46,6 +46,9 @@
       <td>{{ registro.estado }}</td>
       <td>
         <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Ver detalles</button>
+        <ng-container *ngIf="registro.estado === 'Pagado'">
+          <button class="btn btn-primary custom-btn green-btn" (click)="aceptarSolicitud(registro._id)">Aceptar</button>
+        </ng-container>
       </td>
     </tr>
     </tbody>

@@ -1,1 +1,35 @@
-<p>calificacion-pago works!</p>
+<h2>Calificación</h2>
+<br>
+<input type="radio" id="estrella1" name="calificacion" value="1" (change)="calificar()">
+<label for="estrella1">1</label>
+<input type="radio" id="estrella2" name="calificacion" value="2" (change)="calificar()">
+<label for="estrella2">2</label>
+<input type="radio" id="estrella3" name="calificacion" value="3" (change)="calificar()">
+<label for="estrella3">3</label>
+<input type="radio" id="estrella4" name="calificacion" value="4" (change)="calificar()">
+<label for="estrella4">4</label>
+<input type="radio" id="estrella5" name="calificacion" value="5" (change)="calificar()">
+<label for="estrella5">5</label>
+<br><br>
+<div><p>Para cargar el comrpobante de pago, primero debe calificar el servicio!!!!</p></div>
+
+
+<div id="mensaje" *ngIf="mostrarMensaje">
+  <p>Gracias por preferirnos!!!</p>
+</div>
+
+<div id="subir-archivo" *ngIf="mostrarSubirArchivo">
+  <h2>Subir Archivo</h2>
+  <input type="file" id="archivo" (change)="enviarArchivo($event)">
+
+
+</div>
+
+<br>
+<div class="row captcha-container">
+  <ngx-recaptcha2 #captchaElem siteKey="6LfF23ApAAAAAHpLsjA789KffZu1ZmSbQ_5cK3xa" formControlName="recaptcha"></ngx-recaptcha2>
+</div>
+<br><br>
+<div>
+  <button id="enviar">Enviar</button>
+    </div>

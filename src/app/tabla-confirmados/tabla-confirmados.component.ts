@@ -28,5 +28,15 @@ export class TablaConfirmadosComponent implements OnInit {
     this.router.navigate(['/detallesAceptados', {_id:_id}])
   }
 
+  async aceptarSolicitud(idSolicitud: string) {
+    try {
+      await this.CarwashService.aceptarSolicitud(idSolicitud);
+      console.log('Solicitud aceptada correctamente');
+      this.traerRegistrosPendientes();
+    } catch (error) {
+      console.error('Error al aceptar la solicitud:', error);
+    }
+  }
+
 
 }

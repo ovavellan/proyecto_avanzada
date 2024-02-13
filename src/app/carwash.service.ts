@@ -101,6 +101,19 @@ export class CarwashService {
     });
   }
 
+  pagoSolicitud(idSolicitud: string) {
+    return new Promise(resolve => {
+      this.http.post(this.url + 'solicitud/pagoRegistro', { idSolicitud }).subscribe({
+        next: (responseData) => {
+          resolve(responseData);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  }
+
 
   actualizarSolicitud(idSolicitud: string, data: any) {
     return new Promise(resolve => {
