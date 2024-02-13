@@ -1,0 +1,33 @@
+.custom-btn {
+  margin-right: 10px;
+}
+
+.green-btn {
+  background-color: green;
+  border-color: green;
+}
+
+.red-btn {
+  background-color: red;
+  border-color: red;
+}
+
+.navbar {
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+
+
+  .nav-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    &:hover {
+      color: #007bff;
+    }
+  }
+}
+
+
