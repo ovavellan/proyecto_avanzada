@@ -14,9 +14,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/tablaConfirmados">Aceptados</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Servicios</a>
-        </li>
       </ul>
     </div>
   </div>
@@ -47,7 +44,7 @@
       <td>
         <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Ver detalles</button>
         <ng-container *ngIf="registro.estado === 'Pendiente'">
-          <button class="btn btn-primary custom-btn green-btn" (click)="impagoSolicitud(registro._id)">Pagar</button>
+          <button class="btn btn-primary custom-btn green-btn" (click)="impagoSolicitud(registro._id)">Cobrar</button>
           <button class="btn btn-primary custom-btn red-btn" (click)="rechazarSolicitud(registro._id)">Rechazar</button>
         </ng-container>
       </td>

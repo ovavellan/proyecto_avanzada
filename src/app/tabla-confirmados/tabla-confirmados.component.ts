@@ -38,5 +38,14 @@ export class TablaConfirmadosComponent implements OnInit {
     }
   }
 
+  async rechazarSolicitud(idSolicitud: string) {
+    try {
+      await this.CarwashService.impagoRegistro(idSolicitud);
+      
+      this.traerRegistrosPendientes();
+    } catch (error) {
+      console.error('Error al aceptar la solicitud:', error);
+    }
+  }
 
 }

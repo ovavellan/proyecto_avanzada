@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -75,6 +76,19 @@ export class CarwashService {
     });
   }
 
+  impagoRegistro(idSolicitud: string) {
+    return new Promise(resolve => {
+      this.http.post(this.url + 'solicitud/impagoRegistro', { idSolicitud }).subscribe({
+        next: (responseData) => {
+          resolve(responseData);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  }
+
   aceptarSolicitud(idSolicitud: string) {
     return new Promise(resolve => {
       this.http.post(this.url + 'solicitud/aceptarRegistro', { idSolicitud }).subscribe({
@@ -126,5 +140,9 @@ export class CarwashService {
         }
       });
     });
+  }
+
+  actualizarPagoSolicitud(data: FormData): Observable<any> {
+    return this.http.post(this.url + 'solicitud/actualizarPagoRegistro', data);
   }
 }
