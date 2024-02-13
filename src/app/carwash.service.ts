@@ -62,9 +62,9 @@ export class CarwashService {
     });
   }
 
-  aceptarSolicitud(idSolicitud: string) {
+  impagoSolicitud(idSolicitud: string) {
     return new Promise(resolve => {
-      this.http.post(this.url + 'solicitud/aceptarRegistro', { idSolicitud }).subscribe({
+      this.http.post(this.url + 'solicitud/impagoRegistro', { idSolicitud }).subscribe({
         next: (responseData) => {
           resolve(responseData);
         },

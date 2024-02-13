@@ -38,9 +38,9 @@ export class EstadoPendienteComponent implements OnInit {
     }
   }
 
-  async aceptarSolicitud(idSolicitud: string) {
+  async impagoSolicitud(idSolicitud: string) {
     try {
-      await this.CarwashService.aceptarSolicitud(idSolicitud);
+      await this.CarwashService.impagoSolicitud(idSolicitud);
       console.log('Solicitud aceptada correctamente');
       this.traerRegistrosPendientes();
       this.redirectToCalificacionPago(idSolicitud);
