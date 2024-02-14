@@ -14,7 +14,10 @@ import {ActualizarComponent} from "./actualizar/actualizar.component";
 
 import {NgxCaptchaModule } from "ngx-captcha";
 import { TablaConfirmadosComponent } from './tabla-confirmados/tabla-confirmados.component';
+
 import {DetallesAceptadosComponent} from "./detalles-aceptados/detalles-aceptados.component";
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 
 @NgModule({
@@ -36,7 +39,7 @@ import {DetallesAceptadosComponent} from "./detalles-aceptados/detalles-aceptado
     ReactiveFormsModule,
     NgxCaptchaModule,
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
