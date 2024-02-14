@@ -44,6 +44,7 @@
       <td>{{ registro.tipo_lavado }}</td>
       <td>{{ registro.estado }}</td>
       <td>
+        <!-- Botones de Acciones para Aceptar o Rechazar los Registros -->
         <button class="btn btn-primary custom-btn" (click)="redirectToMostrarDetalle(registro._id)">Ver detalles</button>
         <ng-container *ngIf="registro.estado === 'Pagado'">
           <button class="btn btn-primary custom-btn green-btn" (click)="aceptarSolicitud(registro._id)">Aceptar</button>
