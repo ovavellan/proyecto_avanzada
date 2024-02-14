@@ -1,0 +1,74 @@
+.container {
+  width: 50%; /* Ancho del contenedor */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 20px; /* Espaciado interior */
+  border: 1px solid #ccc; /* Borde para visualización */
+}
+.captcha-container {
+  text-align: center; /* Centrar contenido */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Añade un espacio entre los elementos para que no esten unidos */
+}
+ h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  input[type="radio"] + label {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: #ffc107; /* Cambia el color de fondo cuando está seleccionado */
+  }
+
+  #mensaje {
+    display: none;
+    margin-top: 20px; /* Añade un espacio entre los elementos */
+  }
+
+  .centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Añade un espacio entre los elementos */
+  }
+#enviar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px; /* Añade un espacio entre los elementos */
+  }
+
+  /* Añade estilos específicos para el reCAPTCHA */
+  ngx-recaptcha2 {
+    margin-top: 10px; /* Ajusta el margen superior */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Estilo para el mensaje de error del captcha */
+  .text-danger {
+    color: red;
+    margin-top: 5px;
+  }

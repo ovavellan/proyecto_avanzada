@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class CarwashService {
 
-  url= "http://localhost:3500/";
+  url= "http://52.5.117.69:3500/";
 
   datosTabla: any[] = [];
   constructor(public http:HttpClient) { }
