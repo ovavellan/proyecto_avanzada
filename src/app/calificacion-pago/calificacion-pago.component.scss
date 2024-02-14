@@ -49,3 +49,26 @@
     align-items: center;
     margin-top: 20px; /* Añade un espacio entre los elementos */
   }
+#enviar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px; /* Añade un espacio entre los elementos */
+  }
+
+  /* Añade estilos específicos para el reCAPTCHA */
+  ngx-recaptcha2 {
+    margin-top: 10px; /* Ajusta el margen superior */
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Estilo para el mensaje de error del captcha */
+  .text-danger {
+    color: red;
+    margin-top: 5px;
+  }
